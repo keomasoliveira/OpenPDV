@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700;900&display=swap");
+* {
+  font-family: "Lato";
+}
+:root {
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-secondary: #6c757d;
+  --color-secondary-hover: #5a6268;
+  --color-background: #ffffff;
+  --color-background-alt: #f8f9fa;
+  --color-text: #212529;
+  --color-text-light: #ffffff;
+  --color-border: #dee2e6;
+  --color-alert: #ffc107;
+  --color-alert-hover: #e0a800;
+  --color-success: #28a745;
+  --color-success-hover: #218838;
+  --color-danger: #dc3545;
+  --color-danger-hover: #c82333;
+  --color-disabled: #e9ecef;
+  --opacity-disabled: 0.65;
+}
+/* PALHETA DE CORES VERDE
+:root {
+  --primary-color: #28a745;
+  --primary-color-hover: #1e7e34;
+  --secondary-color: #6c757d;
+  --secondary-background: #ffffff;
+  --secondary-hover-background: #e2e6ea;
+  --secondary-hover-color: #1e7e34;
+  --alert-color: #dc3545;
+  --alert-hover-color: #c82333;
+  --disabled-background: #e9ecef;
+  --disabled-opacity: 0.7;
+}
+  */
+/* Roxo
+:root {
+  --primary-color: #6f42c1;
+  --primary-color-hover: #5a2d81;
+  --secondary-color: #5a2d81;
+  --secondary-background: #ffffff;
+  --secondary-hover-background: #dee2e6;
+  --secondary-hover-color: #5a2d81;
+  --alert-color: #fd7e14;
+  --alert-hover-color: #e57b23;
+  --disabled-background: #ced4da;
+  --disabled-opacity: 0.7;
+}
+  */
+/* Vermelho
+:root {
+  --primary-color: #c82333;
+  --primary-color-hover: #a71d2a;
+  --secondary-color: #a71d2a;
+  --secondary-background: #ffffff;
+  --secondary-hover-background: #f5c6cb;
+  --secondary-hover-color: #a71d2a;
+  --alert-color: #ffc107;
+  --alert-hover-color: #e0a800;
+  --disabled-background: #e9ecef;
+  --disabled-opacity: 0.7;
+}
+*/

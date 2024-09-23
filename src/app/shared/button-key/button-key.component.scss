@@ -1,0 +1,26 @@
+.button-key {
+  height: 120px;
+  width: 120px;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  padding: 5px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &__caption {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--color-primary);
+  }
+
+  &:hover {
+    background-color: var(--color-background-alt);
+
+    .button-key__caption {
+      color: var(--color-primary-hover);
+    }
+  }
+}

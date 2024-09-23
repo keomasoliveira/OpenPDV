@@ -1,0 +1,7 @@
+<button class="panel-button" [ngClass]="buttonClass" (click)="onClick()" [disabled]="disabled">
+  <div class="panel-button__content">
+    <span class="panel-button__key">{{ key }}</span>
+    <span class="panel-button__label">{{ name }}</span>
+  </div>
+  <mat-icon class="panel-button__icon">{{ icon }}</mat-icon>
+</button>

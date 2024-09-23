@@ -1,0 +1,9 @@
+<div class="input-key-container">
+  <input
+    type="text"
+    id="input-key-field"
+    class="input-key-field"
+    #inputElement
+    (input)="valueChange.emit(inputElement.value)"
+    placeholder="Código de barras" />
+</div>

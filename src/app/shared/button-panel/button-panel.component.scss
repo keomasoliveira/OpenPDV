@@ -1,0 +1,89 @@
+.panel-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px; // Changed from 10px to 5px
+  width: 180px;
+  height: 80px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 5px; // Changed from 10px to 5px to maintain proportions
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  &__icon {
+    width: 70px; // Slightly reduced to accommodate smaller padding
+    height: 70px; // Slightly reduced to accommodate smaller padding
+    font-size: 45px; // Slightly reduced to maintain proportions
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  &__key {
+    font-size: 10px;
+    margin-bottom: auto; // This pushes the key text to the top
+  }
+
+  &__label {
+    font-size: 16px;
+    font-weight: bold;
+    word-break: break-word;
+    text-align: left;
+  }
+
+  &.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+
+    &:hover {
+      background-color: var(--color-primary-hover);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+
+    .panel-button__icon,
+    .panel-button__key,
+    .panel-button__label {
+      color: var(--color-primary);
+    }
+
+    &:hover {
+      background-color: var(--color-background-alt);
+    }
+  }
+
+  &.btn-alert {
+    background-color: var(--color-alert);
+    color: var(--color-text-light);
+
+    .panel-button__icon,
+    .panel-button__key,
+    .panel-button__label {
+      color: var(--color-text-light);
+    }
+
+    &:hover {
+      background-color: var(--color-alert-hover);
+    }
+  }
+
+  &:disabled {
+    background-color: var(--color-disabled);
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+}

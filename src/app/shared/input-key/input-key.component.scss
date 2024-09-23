@@ -1,0 +1,29 @@
+.input-key-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-key-field {
+  width: 100%;
+  max-width: 380px;
+  height: 80px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  outline: none;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  color: var(--color-primary); // Changed from var(--color-text) to var(--color-primary)
+  background-color: var(--color-background);
+  transition: border-color 0.3s ease;
+
+  &::placeholder {
+    color: var(--color-secondary);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}

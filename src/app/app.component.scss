@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 2;
+  padding: 20px;
+}
+
+.card {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  width: 520px;
+  height: 650px;
+  align-items: center;
+
+  background: var(--color-primary);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.secondary {
+  background: var(--color-background);
+}
+
+#keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 400px;
+  height: 500px;
+}
+
+#keyboard app-button-key {
+  flex: 0 0 calc(33.33% - 10px);
+  margin: 5px;
+}

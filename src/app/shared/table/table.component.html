@@ -1,0 +1,19 @@
+<table class="data-table">
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns" class="data-table__header">
+        {{ column === "ID" ? idHeader : column }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data" class="data-table__row">
+      <td *ngFor="let column of columns" class="data-table__cell" [ngStyle]="{ color: columnColors[column] }">
+        {{ getCellValue(row, column) }}
+      </td>
+      <td class="data-table__cell data-table__cell--bar">
+        <div class="progress-bar" [style.width.%]="getBarWidth(row)"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
