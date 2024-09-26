@@ -7,14 +7,13 @@
 .input-key-field {
   width: 100%;
   max-width: 380px;
-  height: 80px;
+  height: 60px;
   border: 2px solid var(--color-border);
-  border-radius: 8px;
   outline: none;
   font-weight: 700;
   font-size: 24px;
   text-align: center;
-  color: var(--color-primary); // Changed from var(--color-text) to var(--color-primary)
+  color: var(--color-primary);
   background-color: var(--color-background);
   transition: border-color 0.3s ease;
 
@@ -24,6 +23,11 @@
 
   &:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+}
+@media (max-width: 1250px) {
+  .input-key-field {
+    height: 50px;
+    font-size: 20px;
   }
 }

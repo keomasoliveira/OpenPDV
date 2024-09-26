@@ -24,3 +24,28 @@
     }
   }
 }
+@media (max-width: 1650px) {
+  .button-key {
+    height: 100px;
+    width: 100px;
+  }
+}
+@media (max-width: 1450px), (max-height: 800px) {
+  .button-key {
+    height: 80px;
+    width: 100px;
+  }
+}
+@media (max-width: 1400px) {
+  .button-key {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .button-key {
+    height: 70px;
+    width: 60px;
+  }
+}

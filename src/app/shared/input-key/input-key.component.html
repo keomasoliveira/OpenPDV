@@ -3,7 +3,7 @@
     type="text"
     id="input-key-field"
     class="input-key-field"
-    #inputElement
-    (input)="valueChange.emit(inputElement.value)"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
     placeholder="Código de barras" />
 </div>

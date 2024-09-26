@@ -1,24 +1,27 @@
-import { Component, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-input-key',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './input-key.component.html',
-  styleUrls: ['./input-key.component.scss']
+  styleUrls: ['./input-key.component.scss'],
 })
 export class InputKeyComponent {
-  @ViewChild('inputElement') inputElement!: ElementRef;
+  @Input() value: string = '';
   @Output() valueChange = new EventEmitter<string>();
+  @Output() cleared = new EventEmitter<void>();
 
-  appendValue(value: string) {
-    const newValue = this.inputElement.nativeElement.value + value;
-    this.inputElement.nativeElement.value = newValue;
-    this.valueChange.emit(newValue);
+  setValue(newValue: string) {
+    this.value = newValue;
+    this.valueChange.emit(this.value);
   }
 
-  clearValue() {
-    this.inputElement.nativeElement.value = '';
-    this.valueChange.emit('');
+  clearInput() {
+    this.value = '';
+    this.valueChange.emit(this.value);
+    this.cleared.emit();
   }
 }

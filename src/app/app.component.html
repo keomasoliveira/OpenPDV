@@ -1,47 +1,6 @@
-<div class="container">
-  <div class="card secondary">
-    <app-button-panel
-      [buttonClass]="'btn-secondary'"
-      [key]="'[END]'"
-      [name]="'FINALIZAR COMPRA'"
-      [icon]="'paid'"></app-button-panel>
-
-    <app-button-panel
-      [buttonClass]="'btn-alert'"
-      [key]="'[F12]'"
-      [name]="'CANCELAR COMPRA'"
-      [icon]="'cancel'"></app-button-panel>
-
-    <app-button-panel
-      [buttonClass]="'btn-primary'"
-      [key]="'[F11]'"
-      [name]="'CANCELAR COMPRA'"
-      [icon]="'cancel'"></app-button-panel>
-    <app-table
-      [columns]="['ID', 'BARRA', 'DESCRICAO', 'QTD', 'VALORUNIT', 'TOTITEM']"
-      [data]="tableData"
-      [columnColors]="{ ID: 'var(--primary-color)' }"
-      [idHeader]="'#'"
-      [currencyMask]="['VALORUNIT', 'TOTITEM']"></app-table>
-  </div>
-
-  <div class="card">
-    <div id="keyboard">
-      <app-button-key (click)="onButtonClick('1')" [keyCaption]="'1'"></app-button-key>
-      <app-button-key (click)="onButtonClick('2')" [keyCaption]="'2'"></app-button-key>
-      <app-button-key (click)="onButtonClick('3')" [keyCaption]="'3'"></app-button-key>
-      <app-button-key (click)="onButtonClick('4')" [keyCaption]="'4'"></app-button-key>
-      <app-button-key (click)="onButtonClick('5')" [keyCaption]="'5'"></app-button-key>
-      <app-button-key (click)="onButtonClick('6')" [keyCaption]="'6'"></app-button-key>
-      <app-button-key (click)="onButtonClick('7')" [keyCaption]="'7'"></app-button-key>
-      <app-button-key (click)="onButtonClick('8')" [keyCaption]="'8'"></app-button-key>
-      <app-button-key (click)="onButtonClick('9')" [keyCaption]="'9'"></app-button-key>
-      <app-button-key (click)="onButtonClick(',')" [keyCaption]="','"></app-button-key>
-      <app-button-key (click)="onButtonClick('0')" [keyCaption]="'0'"></app-button-key>
-      <app-button-key (click)="onButtonClick('*')" [keyCaption]="'*'"></app-button-key>
-    </div>
-    <app-input-key (cleared)="onInputCleared()"></app-input-key>
+<div class="app-container">
+  <div class="content-container">
+    <router-outlet></router-outlet>
   </div>
   <app-sidebar [buttons]="sidebarButtons"></app-sidebar>
-  <app-last-item></app-last-item>
 </div>

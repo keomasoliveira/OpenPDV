@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { CurrencyBrlPipe } from '../currency-brl.pipe';
 
 @Component({
@@ -8,7 +8,7 @@ import { CurrencyBrlPipe } from '../currency-brl.pipe';
   imports: [CommonModule, CurrencyBrlPipe],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  providers: [CurrencyBrlPipe], // Add this line to provide the pipe
+  providers: [CurrencyBrlPipe],
 })
 export class TableComponent {
   @Input() columns: string[] = [];
@@ -17,7 +17,7 @@ export class TableComponent {
   @Input() idHeader: string = 'ID';
   @Input() currencyMask: string[] = [];
 
-  constructor(private currencyBrlPipe: CurrencyBrlPipe) {} // Inject the pipe
+  constructor(private currencyBrlPipe: CurrencyBrlPipe) {}
 
   getCellValue(row: any, column: string): string {
     return this.currencyMask.includes(column)
@@ -25,12 +25,9 @@ export class TableComponent {
       : row[column];
   }
 
-  // Adicione este método
   getBarWidth(row: any): number {
-    // Implemente a lógica para calcular a largura da barra aqui
-    // Por exemplo, você pode usar um valor máximo e calcular a porcentagem
-    const maxValue = 100; // Defina o valor máximo apropriado
-    const value = row['TOTITEM'] || 0; // Assume que TOTITEM é o valor para a barra
+    const maxValue = 100;
+    const value = row['TOTITEM'] || 0;
     return (value / maxValue) * 100;
   }
 }

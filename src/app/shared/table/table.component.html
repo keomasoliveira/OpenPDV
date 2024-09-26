@@ -1,4 +1,4 @@
-<table class="data-table">
+<table class="data-table" *ngIf="data && data.length > 0">
   <thead>
     <tr>
       <th *ngFor="let column of columns" class="data-table__header">
@@ -11,9 +11,7 @@
       <td *ngFor="let column of columns" class="data-table__cell" [ngStyle]="{ color: columnColors[column] }">
         {{ getCellValue(row, column) }}
       </td>
-      <td class="data-table__cell data-table__cell--bar">
-        <div class="progress-bar" [style.width.%]="getBarWidth(row)"></div>
-      </td>
     </tr>
   </tbody>
 </table>
+<p *ngIf="!data || data.length === 0">Nenhum dado disponível</p>
