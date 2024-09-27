@@ -11,10 +11,21 @@
       </div>
     </div>
     <nav class="sidebar__nav">
-      <button *ngFor="let button of buttons" class="sidebar__nav-item" [class.is-selected]="button.selected">
-        <mat-icon class="sidebar__nav-icon">{{ button.icon }}</mat-icon>
-        <span class="sidebar__nav-label">{{ button.label }}</span>
-      </button>
+      <ng-container *ngFor="let button of buttons">
+        <button class="sidebar__nav-item" [class.is-selected]="button.selected" (click)="onToggleSubItems(button)">
+          <mat-icon class="sidebar__nav-icon">{{ button.icon }}</mat-icon>
+          <span class="sidebar__nav-label">{{ button.label }}</span>
+          <mat-icon class="sidebar__nav-expand-icon" *ngIf="button.subItems">
+            {{ button.expanded ? "expand_less" : "expand_more" }}
+          </mat-icon>
+        </button>
+        <div class="sidebar__subnav" [class.expanded]="button.expanded" *ngIf="button.subItems">
+          <button *ngFor="let subItem of button.subItems" class="sidebar__subnav-item">
+            <span class="sidebar__subnav-label">{{ subItem.label }}</span>
+            <mat-icon class="sidebar__subnav-icon">{{ subItem.icon }}</mat-icon>
+          </button>
+        </div>
+      </ng-container>
     </nav>
   </div>
 </aside>

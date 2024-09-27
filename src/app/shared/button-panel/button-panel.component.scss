@@ -3,20 +3,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 5px; // Changed from 10px to 5px
+  padding: 5px;
   width: 180px;
   height: 80px;
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  gap: 5px; // Changed from 10px to 5px to maintain proportions
+  gap: 5px;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
 
   &__icon {
-    width: 70px; // Slightly reduced to accommodate smaller padding
-    height: 70px; // Slightly reduced to accommodate smaller padding
-    font-size: 45px; // Slightly reduced to maintain proportions
+    width: 70px;
+    height: 70px;
+    font-size: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +32,7 @@
 
   &__key {
     font-size: 10px;
-    margin-bottom: auto; // This pushes the key text to the top
+    margin-bottom: auto;
   }
 
   &__label {

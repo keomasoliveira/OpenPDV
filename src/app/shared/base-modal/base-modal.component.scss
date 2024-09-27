@@ -1,0 +1,100 @@
+.base-modal {
+  width: auto;
+  &__title {
+    color: var(--color-primary);
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+
+    &--cancel {
+      background-color: var(--color-background-alt);
+      color: var(--color-text);
+
+      &:hover {
+        background-color: var(--color-background);
+      }
+    }
+
+    &--confirm {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+
+      &:hover {
+        background-color: var(--color-primary-hover);
+      }
+    }
+  }
+}
+
+::ng-deep .custom-dialog-container {
+  .mat-dialog-container {
+    box-shadow:
+      0 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12);
+    background: var(--color-background);
+    color: var(--color-text);
+    border-radius: 8px;
+    padding: 20px;
+    overflow: visible;
+    max-height: none;
+    height: auto;
+    width: 400px;
+    max-width: 90vw;
+  }
+}
+
+::ng-deep .cdk-overlay-pane {
+  position: absolute !important;
+  pointer-events: auto;
+  box-sizing: border-box;
+  z-index: 1000;
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  transform: none !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  overflow: visible;
+  height: auto;
+  width: auto;
+}
+
+::ng-deep .cdk-overlay-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.32);
+}
+
+::ng-deep .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 1;
+}

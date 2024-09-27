@@ -19,10 +19,9 @@ th {
   padding: 10px;
   border-left: 1px solid var(--color-text-light);
   border-right: 1px solid var(--color-text-light);
-  height: 60px; // Added this line to set the height to 60px
+  height: 60px;
 }
 
-// If you want to set a specific width for the ID column, you can add:
 th:first-child,
 td:first-child {
   width: 60px;

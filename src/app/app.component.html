@@ -2,5 +2,5 @@
   <div class="content-container">
     <router-outlet></router-outlet>
   </div>
-  <app-sidebar [buttons]="sidebarButtons"></app-sidebar>
+  <app-sidebar [buttons]="sidebarButtons" (toggleSubItems)="onToggleSubItems($event)"></app-sidebar>
 </div>
