@@ -40,5 +40,10 @@ namespace API.OpenPDV.Services
 
             return await _productRepository.CreateProduct(newProducts);
         }
+
+        public async Task<Product> GetProductByBarcode(string barcode)
+        {
+            return await _productRepository.GetProductByBarcode(barcode);
+        }
     }
 }

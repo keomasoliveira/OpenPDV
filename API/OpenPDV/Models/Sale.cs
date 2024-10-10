@@ -12,5 +12,6 @@ namespace API.OpenPDV.Models
         public List<SaleItem> Items { get; set; }
         public List<Payment> Payments { get; set; }
         public DateTime Date { get; set; }
+        public string CashRegisterId { get; set; }
     }
 }

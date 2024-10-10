@@ -10,7 +10,7 @@ namespace API.OpenPDV.Dto
 
     public class PaymentCreateDto
     {
-        public string Method { get; set; }
+        public string PaymentMethodId { get; set; }
         public decimal Amount { get; set; }
     }
 }

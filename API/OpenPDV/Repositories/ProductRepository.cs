@@ -29,5 +29,10 @@ namespace API.OpenPDV.Repositories
             await _context.Products.InsertManyAsync(products);
             return products;
         }
+
+        public async Task<Product> GetProductByBarcode(string barcode)
+        {
+            return await _context.Products.Find(p => p.Barcode == barcode).FirstOrDefaultAsync();
+        }
     }
 }

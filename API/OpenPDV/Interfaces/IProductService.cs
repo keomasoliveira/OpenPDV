@@ -8,5 +8,6 @@ namespace API.OpenPDV.Interfaces
         Task<List<Product>> GetAllProducts();
         Task<Product> GetProductById(int productId);
         Task<List<Product>> CreateProduct(List<ProductCreateDto> productCreateDtos);
+        Task<Product> GetProductByBarcode(string barcode);
     }
 }

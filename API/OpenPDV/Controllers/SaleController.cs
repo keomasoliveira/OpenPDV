@@ -1,5 +1,6 @@
 using API.OpenPDV.Data;
 using API.OpenPDV.Dto;
+using API.OpenPDV.Interfaces;
 using API.OpenPDV.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,34 +15,27 @@ namespace API.OpenPDV.Controllers
     public class SaleController : ControllerBase
     {
         private readonly OpenPDVContext _context;
+        private readonly ISaleService _saleService;
 
-        public SaleController(OpenPDVContext context)
+        public SaleController(OpenPDVContext context, ISaleService saleService)
         {
             _context = context;
+            _saleService = saleService;
         }
 
         [HttpPost]
         [SwaggerOperation(Summary = "Cria uma nova venda. As vendas são armazenadas permanentemente na coleção 'Sales'. Os itens de venda associados são movidos da coleção temporária 'SaleItems' para a venda.")]
         public async Task<IActionResult> CreateSale(SaleCreateDto saleCreateDto)
         {
-            var saleItems = await _context.SaleItems.Find(si => saleCreateDto.ItemIds.Contains(si.Id)).ToListAsync();
-
-            var payments = saleCreateDto.Payments.Select(p => new Payment
+            try
             {
-                Method = p.Method,
-                Amount = p.Amount
-            }).ToList();
-
-            var sale = new Sale
+                var sale = await _saleService.CreateSale(saleCreateDto);
+                return CreatedAtAction(nameof(GetSale), new { id = sale.Id }, sale);
+            }
+            catch (InvalidOperationException ex)
             {
-                Items = saleItems,
-                Payments = payments,
-                Date = DateTime.UtcNow
-            };
-
-            await _context.Sales.InsertOneAsync(sale);
-
-            return CreatedAtAction(nameof(GetSale), new { id = sale.Id }, sale);
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]

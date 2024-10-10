@@ -5,11 +5,7 @@ namespace API.OpenPDV.Models
 {
     public class Payment
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-
-        public string Method { get; set; }
+        public string PaymentMethodId { get; set; }
         public decimal Amount { get; set; }
     }
 }

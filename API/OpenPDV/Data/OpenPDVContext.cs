@@ -25,6 +25,8 @@ namespace API.OpenPDV.Data
         public IMongoCollection<CashRegister> CashRegisters => _database.GetCollection<CashRegister>("CashRegisters");
 
         public IMongoCollection<CashRegisterClosing> CashRegisterClosings => _database.GetCollection<CashRegisterClosing>("CashRegisterClosings");
+
+        public IMongoCollection<PaymentMethod> PaymentMethods => _database.GetCollection<PaymentMethod>("PaymentMethods");
     }
 
     public class OpenPDVDatabaseSettings
