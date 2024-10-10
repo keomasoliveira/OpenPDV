@@ -24,6 +24,7 @@ body {
 .left-section {
   flex: 0 0 30%;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: var(--color-primary);
   padding: 20px;
@@ -46,26 +47,26 @@ body {
 #keyboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding-top: 20px;
   gap: 10px;
   justify-content: center; // Centraliza as colunas
   align-items: center; // Centraliza verticalmente
   max-width: 400px; // Ajuste este valor conforme necessário
-  margin: 0 auto; // Centraliza o grid horizontalmente
+  margin: 20px auto 0; // Centraliza o grid horizontalmente
 }
 
 .right-section {
   flex: 1;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: var(--color-background);
   overflow: hidden;
+  overflow-y: auto;
 }
 
 app-table {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 20px;
 }
 
 .card {
@@ -86,5 +87,4 @@ app-table {
 
 app-last-item {
   background-color: var(--color-primary);
-  padding: 20px;
 }

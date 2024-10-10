@@ -4,15 +4,11 @@
     <ng-content></ng-content>
   </div>
   <div class="base-modal__actions">
-    <ng-container *ngIf="showCancelButton">
-      <button mat-button class="base-modal__button base-modal__button--cancel" (click)="onCancel()">
-        {{ cancelButtonText }}
-      </button>
-    </ng-container>
-    <ng-container *ngIf="showConfirmButton">
-      <button mat-button class="base-modal__button base-modal__button--confirm" (click)="onConfirm()">
-        {{ confirmButtonText }}
-      </button>
-    </ng-container>
+    <button *ngIf="showCancelButton" class="base-modal__button base-modal__button--cancel" (click)="onCancel()">
+      {{ cancelButtonText }}
+    </button>
+    <button *ngIf="showConfirmButton" class="base-modal__button base-modal__button--confirm" (click)="onConfirm()">
+      {{ confirmButtonText }}
+    </button>
   </div>
 </div>

@@ -6,4 +6,7 @@
     [(ngModel)]="value"
     (ngModelChange)="valueChange.emit($event)"
     placeholder="Código de barras" />
+  <button class="clear-button" *ngIf="value" (click)="clearInput()">
+    <mat-icon>close</mat-icon>
+  </button>
 </div>

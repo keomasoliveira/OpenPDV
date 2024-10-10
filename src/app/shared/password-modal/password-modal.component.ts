@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common'; // Adicione esta linha
+import { CommonModule } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,7 +12,7 @@ import { BaseModalComponent } from '../base-modal/base-modal.component';
   selector: 'app-password-modal',
   standalone: true,
   imports: [
-    CommonModule, // Adicione CommonModule aqui
+    CommonModule,
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -31,14 +31,14 @@ export class PasswordModalComponent extends BaseModalComponent {
 
   constructor(
     public dialogRef: MatDialogRef<PasswordModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: { validatePassword: (password: string) => boolean }
   ) {
     super();
   }
 
   onSubmit(): void {
     if (this.data.validatePassword(this.password)) {
-      this.dialogRef.close(this.password);
+      this.dialogRef.close(true);
     } else {
       this.showError = true;
     }

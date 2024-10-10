@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { RouterModule } from '@angular/router'; // Import RouterModule
+import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { LastItemComponent } from '../../components/last-item/last-item.component';
+import { ModalService } from '../../services/modal.service';
 import { ButtonKeyComponent } from '../../shared/button-key/button-key.component';
 import { ButtonPanelComponent } from '../../shared/button-panel/button-panel.component';
 import { InputKeyComponent } from '../../shared/input-key/input-key.component';
@@ -12,7 +13,7 @@ import { TableComponent } from '../../shared/table/table.component';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule, // Add RouterModule to imports
+    RouterModule,
     ButtonPanelComponent,
     ButtonKeyComponent,
     TableComponent,
@@ -23,39 +24,47 @@ import { TableComponent } from '../../shared/table/table.component';
   styleUrls: ['./principal-vendas.component.scss'],
 })
 export class PrincipalVendasComponent implements OnInit {
-  @ViewChild(InputKeyComponent) inputKeyComponent!: InputKeyComponent;
-
   tableData: any[] = [];
   inputValue: string = '';
 
+  constructor(private modalService: ModalService) {}
+
   ngOnInit() {
-    this.tableData = [
-      {
-        '#': '001',
-        PRODUTO: 'Produto 1',
-        BARRA: '789100005512',
-        'PREÇO UNIT': 10.5,
-        QTD: 2,
-        TOTAL: 21.0,
-      },
-      {
-        '#': '002',
-        PRODUTO: 'Produto 2',
-        BARRA: '789600740151',
-        'PREÇO UNIT': 15.75,
-        QTD: 1,
-        TOTAL: 15.75,
-      },
-    ];
+    this.generateTableData();
+  }
+
+  generateTableData() {
+    this.tableData = [];
+    for (let i = 1; i <= 60; i++) {
+      this.tableData.push({
+        '#': String(i).padStart(3, '0'),
+        PRODUTO: `Produto ${i}`,
+        BARRA: `7891000055${String(i).padStart(2, '0')}`,
+        'PREÇO UNIT': (Math.random() * 100).toFixed(2),
+        QTD: Math.floor(Math.random() * 10) + 1,
+        TOTAL: 0,
+      });
+    }
+
+    this.tableData.forEach(item => {
+      item.TOTAL = (parseFloat(item['PREÇO UNIT']) * item.QTD).toFixed(2);
+    });
   }
 
   onButtonClick(key: string) {
     this.inputValue += key;
-    this.inputKeyComponent.setValue(this.inputValue);
   }
 
   onInputCleared() {
     this.inputValue = '';
+  }
+
+  onFinalizarCompra() {
+    console.log('Compra Finalizada');
+  }
+
+  onCancelarCompra() {
+    console.log('Compra cancelada');
   }
 
   sidebarButtons = [

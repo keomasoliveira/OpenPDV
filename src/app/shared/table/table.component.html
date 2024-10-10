@@ -1,4 +1,4 @@
-<table class="data-table" *ngIf="data && data.length > 0">
+<table class="data-table" #dataTable *ngIf="data && data.length > 0">
   <thead>
     <tr>
       <th *ngFor="let column of columns" class="data-table__header">
@@ -6,7 +6,7 @@
       </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody #tableBody>
     <tr *ngFor="let row of data" class="data-table__row">
       <td *ngFor="let column of columns" class="data-table__cell" [ngStyle]="{ color: columnColors[column] }">
         {{ getCellValue(row, column) }}

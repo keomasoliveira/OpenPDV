@@ -1,4 +1,5 @@
 .input-key-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +10,7 @@
   max-width: 380px;
   height: 60px;
   border: 2px solid var(--color-border);
+  border-right: none;
   outline: none;
   font-weight: 700;
   font-size: 24px;
@@ -25,9 +27,33 @@
     border-color: var(--color-primary);
   }
 }
+
+.clear-button {
+  height: 62px;
+  width: 62px;
+  background: white;
+  border: 3px white;
+  border-left: none;
+  cursor: pointer;
+  color: var(--color-primary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-icon {
+    font-size: 20px;
+  }
+}
+
 @media (max-width: 1250px) {
   .input-key-field {
     height: 50px;
     font-size: 20px;
+  }
+
+  .clear-button {
+    height: 50px;
+    width: 50px;
   }
 }
